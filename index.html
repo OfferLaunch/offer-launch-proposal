@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,10 +6,10 @@
     <title>Strategic Partnership Proposal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/framer-motion@12.6.3/dist/framer-motion.js"></script>
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
+    <script src="https://unpkg.com/framer-motion@12.6.3/dist/framer-motion.js"></script>
     <script src="https://unpkg.com/@heroicons/react@2.2.0/24/outline/index.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -65,6 +65,15 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             border: 1px solid #fef9c3;
             margin-bottom: 3rem;
+            min-height: 300px;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .chart-container {
+                padding: 1rem;
+                min-height: 250px;
+            }
         }
 
         .text-7xl {
@@ -452,8 +461,8 @@
                         <h3 class="text-2xl font-bold text-black mb-4">Option 1: Growth Partnership</h3>
                         <div class="space-y-6">
                             <div class="flex items-center justify-between">
-                                <span class="text-lg text-gray-700">Monthly Fee</span>
-                                <span class="text-2xl font-bold text-yellow-500">$5,000</span>
+                                <span class="text-lg text-gray-700">One-Time Licensing Fee</span>
+                                <span class="text-2xl font-bold text-yellow-500">$15,000</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-lg text-gray-700">Revenue Split</span>
@@ -507,8 +516,8 @@
                         <h3 class="text-2xl font-bold text-black mb-4">Option 2: Premium Partnership</h3>
                         <div class="space-y-6">
                             <div class="flex items-center justify-between">
-                                <span class="text-lg text-gray-700">Monthly Fee</span>
-                                <span class="text-2xl font-bold text-yellow-500">$10,000</span>
+                                <span class="text-lg text-gray-700">One-Time Licensing Fee</span>
+                                <span class="text-2xl font-bold text-yellow-500">$20,000</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-lg text-gray-700">Revenue Split</span>
@@ -563,61 +572,108 @@
     </main>
 
     <script>
-        // Initialize Chart.js
-        const ctx = document.getElementById('revenueChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [
-                    {
-                        label: 'Current Revenue (50-75k/month)',
-                        data: [65000, 65000, 65000, 65000, 65000, 65000, 65000, 65000, 65000, 65000, 65000, 65000],
-                        borderColor: 'rgb(156, 163, 175)',
-                        backgroundColor: 'rgba(156, 163, 175, 0.5)',
-                        fill: true,
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Initialize Chart.js
+                const ctx = document.getElementById('revenueChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [
+                            {
+                                label: 'Current Revenue (50-75k/month)',
+                                data: [65000, 65000, 65000, 65000, 65000, 65000, 65000, 65000, 65000, 65000, 65000, 65000],
+                                borderColor: 'rgb(156, 163, 175)',
+                                backgroundColor: 'rgba(156, 163, 175, 0.5)',
+                                fill: true,
+                            },
+                            {
+                                label: 'Total Revenue with Partnership',
+                                data: [65000, 100000, 150000, 250000, 400000, 600000, 800000, 900000, 950000, 1000000, 1000000, 1000000],
+                                borderColor: 'rgb(234, 179, 8)',
+                                backgroundColor: 'rgba(234, 179, 8, 0.5)',
+                                fill: true,
+                            },
+                            {
+                                label: 'Your Take-Home (After 30% Acquisition & 45% Split)',
+                                data: [65000, 100000, 150000, 250000, 400000, 600000, 800000, 900000, 950000, 1000000, 1000000, 1000000].map(revenue => {
+                                    const afterAcquisition = revenue * 0.7;
+                                    return afterAcquisition * 0.45;
+                                }),
+                                borderColor: 'rgb(34, 197, 94)',
+                                backgroundColor: 'rgba(34, 197, 94, 0.5)',
+                                fill: true,
+                            },
+                        ],
                     },
-                    {
-                        label: 'Total Revenue with Partnership',
-                        data: [65000, 100000, 150000, 250000, 400000, 600000, 800000, 900000, 950000, 1000000, 1000000, 1000000],
-                        borderColor: 'rgb(234, 179, 8)',
-                        backgroundColor: 'rgba(234, 179, 8, 0.5)',
-                        fill: true,
-                    },
-                    {
-                        label: 'Your Take-Home (After 30% Acquisition & 45% Split)',
-                        data: [65000, 100000, 150000, 250000, 400000, 600000, 800000, 900000, 950000, 1000000, 1000000, 1000000].map(revenue => {
-                            const afterAcquisition = revenue * 0.7;
-                            return afterAcquisition * 0.45;
-                        }),
-                        borderColor: 'rgb(34, 197, 94)',
-                        backgroundColor: 'rgba(34, 197, 94, 0.5)',
-                        fill: true,
-                    },
-                ],
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Revenue Projection Breakdown',
-                    },
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function(value) {
-                                return '$' + Number(value).toLocaleString();
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    boxWidth: 12,
+                                    padding: 10,
+                                    font: {
+                                        size: window.innerWidth < 768 ? 10 : 12
+                                    },
+                                    usePointStyle: true,
+                                    pointStyle: 'circle'
+                                },
+                                onClick: null // Disable legend click interaction
+                            },
+                            title: {
+                                display: true,
+                                text: 'Revenue Projection Breakdown',
+                                font: {
+                                    size: window.innerWidth < 768 ? 14 : 16
+                                }
                             },
                         },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + Number(value).toLocaleString();
+                                    },
+                                    font: {
+                                        size: window.innerWidth < 768 ? 10 : 12
+                                    }
+                                },
+                            },
+                            x: {
+                                ticks: {
+                                    font: {
+                                        size: window.innerWidth < 768 ? 10 : 12
+                                    }
+                                }
+                            }
+                        },
                     },
-                },
-            },
+                });
+
+                // Handle window resize
+                window.addEventListener('resize', function() {
+                    const chart = Chart.getChart(ctx);
+                    if (chart) {
+                        chart.options.plugins.legend.labels.font.size = window.innerWidth < 768 ? 10 : 12;
+                        chart.options.plugins.title.font.size = window.innerWidth < 768 ? 14 : 16;
+                        chart.options.scales.y.ticks.font.size = window.innerWidth < 768 ? 10 : 12;
+                        chart.options.scales.x.ticks.font.size = window.innerWidth < 768 ? 10 : 12;
+                        chart.update();
+                    }
+                });
+            } catch (error) {
+                console.error('Error initializing chart:', error);
+            }
         });
     </script>
 </body>
