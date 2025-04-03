@@ -153,8 +153,9 @@
 
         .scroll-content {
             display: flex;
-            animation: scroll 30s linear infinite;
+            animation: scroll 40s linear infinite;
             gap: 2rem;
+            width: fit-content;
         }
 
         .scroll-content:hover {
@@ -168,18 +169,29 @@
             min-width: 300px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .scroll-item h3 {
             color: var(--dark);
             font-size: 1.5rem;
             margin-bottom: 1rem;
+            text-align: center;
+            width: 100%;
         }
 
         .scroll-item p {
             color: var(--dark);
             font-size: 1rem;
             line-height: 1.6;
+            text-align: center;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto;
         }
 
         @keyframes scroll {
@@ -187,7 +199,7 @@
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(-100%);
+                transform: translateX(calc(-50% - 1rem));
             }
         }
 
