@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OfferLaunch - Premier Growth & Scaling Solutions | Transform Your Business</title>
+    <link rel="icon" type="image/png" href="assets/logos/favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         
-        /* Replace these with your brand colors once provided */
         :root {
-            --primary: #EAB308;
-            --secondary: #1F2937;
-            --accent: #FEFCE8;
+            --primary: #FFCE00;
+            --secondary: #FFB100;
+            --dark: #000000;
+            --accent: #FFF9E6;
         }
 
         body {
@@ -20,21 +21,21 @@
             margin: 0;
             padding: 0;
             background: #ffffff;
-            color: var(--secondary);
+            color: var(--dark);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
 
         .section {
-            padding: 6rem 0;
+            padding: 8rem 0;
         }
 
         .hero-section {
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, var(--accent), #ffffff);
@@ -48,34 +49,36 @@
             right: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.1;
+            opacity: 0.05;
             background-image: radial-gradient(var(--primary) 2px, transparent 2px);
-            background-size: 30px 30px;
+            background-size: 40px 40px;
         }
 
         .card {
             background: #ffffff;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid #E5E7EB;
-            transition: transform 0.3s ease;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
         }
 
         .stats-card {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
         }
 
         .stats-number {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            line-height: 1;
         }
 
         .highlight {
@@ -84,30 +87,115 @@
         }
 
         .gradient-text {
-            background: linear-gradient(45deg, var(--primary), #F59E0B);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .btn-primary {
             background: var(--primary);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
+            color: var(--dark);
+            padding: 1.25rem 2.5rem;
+            border-radius: 0.75rem;
             font-weight: 600;
             transition: all 0.3s ease;
             display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+            box-shadow: 0 10px 20px rgba(255, 206, 0, 0.2);
+            background: var(--secondary);
+            color: #FFFFFF;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 4rem;
+            text-align: center;
+            line-height: 1.2;
+            color: #FFFFFF;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #FFFFFF;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            opacity: 0.9;
+        }
+
+        .testimonial-card {
+            background: var(--dark);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            position: relative;
+            color: #FFFFFF;
+        }
+
+        .testimonial-card h3 {
+            color: #FFFFFF;
+        }
+
+        .testimonial-card p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .testimonial-card blockquote {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 8rem;
+            color: var(--primary);
+            opacity: 0.1;
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+        }
+
+        .dark-section {
+            background: var(--dark);
+            color: #FFFFFF;
+        }
+
+        .dark-section .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-section .card h3 {
+            color: #FFFFFF;
+        }
+
+        .dark-section .card p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .dark-section .stats-number {
+            color: var(--primary);
+        }
+
+        .dark-section .stats-card p {
+            color: rgba(255, 255, 255, 0.8);
         }
 
         @media (max-width: 768px) {
             .hero-section {
-                min-height: 80vh;
+                min-height: 90vh;
                 text-align: center;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .section {
+                padding: 4rem 0;
             }
         }
     </style>
@@ -118,12 +206,13 @@
         <section class="hero-section">
             <div class="hero-pattern"></div>
             <div class="container">
-                <div class="max-w-3xl">
-                    <h1 class="text-6xl font-bold mb-6">
-                        Turn Your Brand Into a 
-                        <span class="gradient-text">High-Margin Machine</span>
+                <div class="max-w-4xl mx-auto text-center">
+                    <img src="assets/logos/Asset 1.png" alt="OfferLaunch Logo" class="h-24 mx-auto mb-12">
+                    <h1 class="text-7xl font-bold mb-8 leading-tight">
+                        Transform Your Brand Into a 
+                        <span class="gradient-text">Revenue Powerhouse</span>
                     </h1>
-                    <p class="text-xl text-gray-600 mb-8">
+                    <p class="text-2xl text-gray-600 mb-12 leading-relaxed">
                         OfferLaunch transforms businesses into predictable, scalable revenue engines through expert paid traffic strategy, funnel optimization, and operational excellence.
                     </p>
                     <div class="flex flex-wrap gap-4">
@@ -134,45 +223,46 @@
         </section>
 
         <!-- Stats Section -->
-        <section class="section bg-white">
+        <section class="section dark-section">
             <div class="container">
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="card stats-card">
                         <div class="stats-number">$50M+</div>
-                        <p class="text-lg text-gray-600">Revenue Generated</p>
+                        <p class="text-xl">Revenue Generated</p>
                     </div>
                     <div class="card stats-card">
                         <div class="stats-number">70%+</div>
-                        <p class="text-lg text-gray-600">Average Profit Margins</p>
+                        <p class="text-xl">Average Profit Margins</p>
                     </div>
                     <div class="card stats-card">
                         <div class="stats-number">100+</div>
-                        <p class="text-lg text-gray-600">Successful Campaigns</p>
+                        <p class="text-xl">Successful Campaigns</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- What We Do -->
-        <section class="section bg-gray-50">
+        <section class="section dark-section">
             <div class="container">
-                <h2 class="text-4xl font-bold text-center mb-16">What Makes Us Different</h2>
+                <h2 class="section-title">What Makes Us Different</h2>
+                <p class="section-subtitle">Our unique approach combines proven strategies with cutting-edge technology to deliver exceptional results.</p>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="card">
-                        <h3 class="text-2xl font-bold mb-4">Full-Stack Execution</h3>
-                        <p class="text-gray-600">
+                        <h3 class="text-2xl font-bold mb-6">Full-Stack Execution</h3>
+                        <p class="text-lg">
                             We don't just consult – we execute. From strategy to implementation, we handle every aspect of your growth journey.
                         </p>
                     </div>
                     <div class="card">
-                        <h3 class="text-2xl font-bold mb-4">Risk-Free Model</h3>
-                        <p class="text-gray-600">
+                        <h3 class="text-2xl font-bold mb-6">Risk-Free Model</h3>
+                        <p class="text-lg">
                             We put our money where our mouth is. We cover ad spend and only win when you win.
                         </p>
                     </div>
                     <div class="card">
-                        <h3 class="text-2xl font-bold mb-4">Proven System</h3>
-                        <p class="text-gray-600">
+                        <h3 class="text-2xl font-bold mb-6">Proven System</h3>
+                        <p class="text-lg">
                             Our battle-tested framework has generated over $50M in revenue across various industries.
                         </p>
                     </div>
@@ -181,53 +271,54 @@
         </section>
 
         <!-- Services -->
-        <section class="section bg-white">
+        <section class="section dark-section">
             <div class="container">
-                <h2 class="text-4xl font-bold text-center mb-16">Our Services</h2>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive solutions designed to scale your business to new heights.</p>
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="card">
-                        <h3 class="text-2xl font-bold mb-4">Paid Traffic Mastery</h3>
-                        <ul class="space-y-4">
+                        <h3 class="text-2xl font-bold mb-8">Paid Traffic Mastery</h3>
+                        <ul class="space-y-6">
                             <li class="flex items-center">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="h-7 w-7 text-[#FFCE00] mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                 </svg>
-                                <span>Strategic campaign planning and execution</span>
+                                <span class="text-lg">Strategic campaign planning and execution</span>
                             </li>
                             <li class="flex items-center">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="h-7 w-7 text-[#FFCE00] mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                 </svg>
-                                <span>Advanced targeting and optimization</span>
+                                <span class="text-lg">Advanced targeting and optimization</span>
                             </li>
                             <li class="flex items-center">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="h-7 w-7 text-[#FFCE00] mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                 </svg>
-                                <span>Continuous performance monitoring</span>
+                                <span class="text-lg">Continuous performance monitoring</span>
                             </li>
                         </ul>
                     </div>
                     <div class="card">
-                        <h3 class="text-2xl font-bold mb-4">Funnel Optimization</h3>
-                        <ul class="space-y-4">
+                        <h3 class="text-2xl font-bold mb-8">Funnel Optimization</h3>
+                        <ul class="space-y-6">
                             <li class="flex items-center">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="h-7 w-7 text-[#FFCE00] mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                 </svg>
-                                <span>High-converting landing pages</span>
+                                <span class="text-lg">High-converting landing pages</span>
                             </li>
                             <li class="flex items-center">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="h-7 w-7 text-[#FFCE00] mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                 </svg>
-                                <span>Upsell and cross-sell optimization</span>
+                                <span class="text-lg">Upsell and cross-sell optimization</span>
                             </li>
                             <li class="flex items-center">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="h-7 w-7 text-[#FFCE00] mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                 </svg>
-                                <span>A/B testing and conversion rate optimization</span>
+                                <span class="text-lg">A/B testing and conversion rate optimization</span>
                             </li>
                         </ul>
                     </div>
@@ -235,45 +326,42 @@
             </div>
         </section>
 
-        <!-- Case Studies Section (Placeholder) -->
-        <section class="section bg-gray-50">
+        <!-- Case Studies Section -->
+        <section class="section dark-section">
             <div class="container">
-                <h2 class="text-4xl font-bold text-center mb-16">Success Stories</h2>
+                <h2 class="section-title">Success Stories</h2>
+                <p class="section-subtitle">Real results from real businesses we've helped scale.</p>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Case study cards will go here -->
-                    <div class="card">
-                        <div class="aspect-video bg-gray-100 mb-4 rounded"></div>
-                        <h3 class="text-2xl font-bold mb-2">Ecom Authority</h3>
-                        <p class="text-gray-600 mb-4">CEO Dan Cohen</p>
-                        <div class="space-y-2">
-                            <p class="text-sm text-gray-500">0 → $45M/year in front-end sales</p>
-                            <p class="text-sm text-gray-500">$150M+ generated</p>
+                    <div class="testimonial-card">
+                        <h3 class="text-2xl font-bold mb-4">Ecom Authority</h3>
+                        <p class="mb-6">CEO Dan Cohen</p>
+                        <div class="space-y-3 mb-6">
+                            <p class="text-lg font-semibold">0 → $45M/year in front-end sales</p>
+                            <p class="text-lg font-semibold">$150M+ generated</p>
                         </div>
-                        <blockquote class="mt-4 text-sm italic text-gray-600">
+                        <blockquote class="text-lg italic">
                             "Dawson and the team are surgical, and this partnership 100% attributes to my success in the space, Dawson is an Offer God among men"
                         </blockquote>
-                        <p class="mt-2 text-sm font-semibold">- Dan Cohen</p>
+                        <p class="mt-4 text-lg font-semibold">- Dan Cohen</p>
                     </div>
-                    <div class="card">
-                        <div class="aspect-video bg-gray-100 mb-4 rounded"></div>
-                        <h3 class="text-2xl font-bold mb-2">Ecom Accelerator</h3>
-                        <p class="text-gray-600 mb-4">Cameron Hoffman</p>
-                        <div class="space-y-2">
-                            <p class="text-sm text-gray-500">0 → $1M/month in less than 180 days</p>
+                    <div class="testimonial-card">
+                        <h3 class="text-2xl font-bold mb-4">Ecom Accelerator</h3>
+                        <p class="mb-6">Cameron Hoffman</p>
+                        <div class="space-y-3 mb-6">
+                            <p class="text-lg font-semibold">0 → $1M/month in less than 180 days</p>
                         </div>
-                        <blockquote class="mt-4 text-sm italic text-gray-600">
+                        <blockquote class="text-lg italic">
                             "Dawson and team made me the best company in the space overnight"
                         </blockquote>
-                        <p class="mt-2 text-sm font-semibold">- Cameron Hoffman</p>
+                        <p class="mt-4 text-lg font-semibold">- Cameron Hoffman</p>
                     </div>
-                    <div class="card">
-                        <div class="aspect-video bg-gray-100 mb-4 rounded"></div>
-                        <h3 class="text-2xl font-bold mb-2">Volaris AI</h3>
-                        <p class="text-gray-600 mb-4">CEO</p>
-                        <div class="space-y-2">
-                            <p class="text-sm text-gray-500">0 → $5M MRR in 1 year</p>
+                    <div class="testimonial-card">
+                        <h3 class="text-2xl font-bold mb-4">Volaris AI</h3>
+                        <p class="mb-6">CEO</p>
+                        <div class="space-y-3 mb-6">
+                            <p class="text-lg font-semibold">0 → $5M MRR in 1 year</p>
                         </div>
-                        <blockquote class="mt-4 text-sm italic text-gray-600">
+                        <blockquote class="text-lg italic">
                             "Dawson made my company go from zero to 5m a month in less than a year, changing my life completely"
                         </blockquote>
                     </div>
@@ -281,29 +369,38 @@
             </div>
         </section>
 
-        <!-- Client Logos Section (Placeholder) -->
-        <section class="section bg-white">
+        <!-- Client Logos Section -->
+        <section class="section dark-section">
             <div class="container">
-                <h2 class="text-4xl font-bold text-center mb-16">Trusted By Industry Leaders</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <!-- Logo placeholders -->
-                    <div class="aspect-video bg-gray-100 rounded"></div>
-                    <div class="aspect-video bg-gray-100 rounded"></div>
-                    <div class="aspect-video bg-gray-100 rounded"></div>
-                    <div class="aspect-video bg-gray-100 rounded"></div>
+                <h2 class="section-title">Trusted By Industry Leaders</h2>
+                <p class="section-subtitle">Join the ranks of successful businesses we've helped scale.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+                    <!-- Logo placeholders - replace src with actual logo paths -->
+                    <div class="aspect-[3/2] bg-white/5 rounded-lg flex items-center justify-center p-6">
+                        <img src="assets/logos/Asset 2.png" alt="Client Logo 1" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <div class="aspect-[3/2] bg-white/5 rounded-lg flex items-center justify-center p-6">
+                        <img src="assets/logos/Asset 2.png" alt="Client Logo 2" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <div class="aspect-[3/2] bg-white/5 rounded-lg flex items-center justify-center p-6">
+                        <img src="assets/logos/Asset 2.png" alt="Client Logo 3" class="max-w-full max-h-full object-contain">
+                    </div>
+                    <div class="aspect-[3/2] bg-white/5 rounded-lg flex items-center justify-center p-6">
+                        <img src="assets/logos/Asset 2.png" alt="Client Logo 4" class="max-w-full max-h-full object-contain">
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Call to Action -->
-        <section class="section bg-gray-50">
+        <section class="section dark-section">
             <div class="container">
-                <div class="card text-center max-w-3xl mx-auto">
-                    <h2 class="text-4xl font-bold mb-8">Ready to Scale Your Brand?</h2>
-                    <p class="text-xl text-gray-600 mb-8">
+                <div class="card text-center max-w-4xl mx-auto">
+                    <h2 class="text-5xl font-bold mb-8">Ready to Scale Your Brand?</h2>
+                    <p class="text-2xl mb-12">
                         Let's discuss how we can transform your business into a predictable, high-margin machine.
                     </p>
-                    <div class="text-center mt-16">
+                    <div class="text-center">
                         <a href="https://www.offerlaunch.ai" class="btn-primary">Launch Your Brand</a>
                     </div>
                 </div>
