@@ -118,12 +118,12 @@
             margin-bottom: 4rem;
             text-align: center;
             line-height: 1.2;
-            color: #FFFFFF;
+            color: var(--dark);
         }
 
         .section-subtitle {
             font-size: 1.25rem;
-            color: #FFFFFF;
+            color: var(--dark);
             text-align: center;
             max-width: 800px;
             margin: 0 auto 4rem;
@@ -252,6 +252,11 @@
             .section {
                 padding: 4rem 0;
             }
+        }
+
+        .dark-section .section-title,
+        .dark-section .section-subtitle {
+            color: #FFFFFF;
         }
     </style>
 </head>
@@ -382,10 +387,10 @@
         </section>
 
         <!-- Case Studies Section -->
-        <section class="section dark-section">
+        <section class="section">
             <div class="container">
-                <h2 class="section-title">Success Stories</h2>
-                <p class="section-subtitle">Real results from real businesses we've helped scale.</p>
+                <h2 class="section-title text-dark">Success Stories</h2>
+                <p class="section-subtitle text-dark">Real results from real businesses we've helped scale.</p>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="testimonial-card">
                         <h3 class="text-2xl font-bold mb-4">Ecom Authority</h3>
