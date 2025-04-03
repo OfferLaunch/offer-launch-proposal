@@ -112,13 +112,22 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             font-size: 0.875rem;
+            border: 2px solid var(--dark);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(255, 206, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             background: var(--secondary);
             color: #FFFFFF;
+            border-color: var(--dark);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
 
         .section-title {
@@ -300,7 +309,7 @@
                     <p class="text-2xl text-gray-600 mb-12 leading-relaxed">
                         OfferLaunch transforms businesses into predictable, scalable revenue engines through expert paid traffic strategy, funnel optimization, and operational excellence.
                     </p>
-                    <div class="flex flex-wrap gap-4">
+                    <div class="flex justify-center">
                         <a href="https://www.offerlaunch.ai" class="btn-primary">Launch Your Brand</a>
                     </div>
                 </div>
