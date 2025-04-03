@@ -189,9 +189,10 @@
         }
 
         .footer {
-            background: var(--dark);
-            color: #FFFFFF;
+            background: #F5F5F5;
+            color: var(--dark);
             padding: 4rem 0 2rem;
+            border-top: 2px solid #FFFFFF;
         }
 
         .footer-content {
@@ -202,13 +203,14 @@
         }
 
         .footer-section h3 {
-            color: var(--primary);
+            color: var(--dark);
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
         }
 
         .footer-section p {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--dark);
+            opacity: 0.8;
             margin-bottom: 1rem;
         }
 
@@ -222,23 +224,37 @@
         }
 
         .footer-section ul li a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--dark);
+            opacity: 0.8;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .footer-section ul li a:hover {
             color: var(--primary);
+            opacity: 1;
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .footer-bottom p {
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--dark);
+            opacity: 0.6;
+        }
+
+        .social-links a {
+            color: var(--dark);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            opacity: 1;
         }
 
         @media (max-width: 768px) {
@@ -460,7 +476,7 @@
                     <p class="text-2xl mb-12">
                         Let's discuss how we can transform your business into a predictable, high-margin machine.
                     </p>
-                    <div class="text-center">
+                    <div class="flex justify-center">
                         <a href="https://www.offerlaunch.ai" class="btn-primary">Launch Your Brand</a>
                     </div>
                 </div>
@@ -474,13 +490,13 @@
                     <div class="footer-section">
                         <h3>OfferLaunch</h3>
                         <p>Transform your business into a predictable, scalable revenue engine through expert paid traffic strategy and funnel optimization.</p>
-                        <div class="flex gap-4 mt-4">
-                            <a href="https://www.offerlaunch.ai" class="text-white hover:text-[#FFCE00] transition-colors">
+                        <div class="social-links flex gap-4 mt-4">
+                            <a href="https://www.offerlaunch.ai">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22.5C6.21 22.5 1.5 17.79 1.5 12S6.21 1.5 12 1.5 22.5 6.21 22.5 12 17.79 22.5 12 22.5z"/>
                                 </svg>
                             </a>
-                            <a href="https://www.linkedin.com/company/offerlaunch" class="text-white hover:text-[#FFCE00] transition-colors">
+                            <a href="https://www.linkedin.com/company/offerlaunch">
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-.88-.018-2.013-1.225-2.013-1.225 0-1.413.957-1.413 1.947v5.67h-3v-11h2.9v1.56h.042c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.835z"/>
                                 </svg>
