@@ -3,709 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategic Partnership Proposal</title>
-    <!-- Load Chart.js first -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Then load Tailwind -->
+    <title>OfferLaunch - Premier Growth & Scaling Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/react-chartjs-2@5.3.0/dist/index.umd.js"></script>
-    <script src="https://unpkg.com/framer-motion@12.6.3/dist/framer-motion.js"></script>
-    <script src="https://unpkg.com/@heroicons/react@2.2.0/24/outline/index.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         
+        /* Replace these with your brand colors once provided */
+        :root {
+            --primary: #EAB308;
+            --secondary: #1F2937;
+            --accent: #FEFCE8;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
             background: #ffffff;
+            color: var(--secondary);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(to bottom, #fefce8, #ffffff);
+            padding: 0 1.5rem;
         }
 
         .section {
-            padding: 8rem 0;
+            padding: 6rem 0;
         }
 
-        .grid {
-            display: grid;
-            gap: 4rem;
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--accent), #ffffff);
+            position: relative;
+            overflow: hidden;
         }
 
-        @media (min-width: 768px) {
-            .grid-cols-2 {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: radial-gradient(var(--primary) 2px, transparent 2px);
+            background-size: 30px 30px;
         }
 
         .card {
-            background: #fefce8;
-            padding: 3rem;
-            border-radius: 0.5rem;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 1rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid #fef9c3;
+            border: 1px solid #E5E7EB;
+            transition: transform 0.3s ease;
         }
 
-        .chart-container {
-            background: white;
-            padding: 3rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid #fef9c3;
-            margin-bottom: 3rem;
-            min-height: 300px;
-            position: relative;
+        .card:hover {
+            transform: translateY(-5px);
         }
 
-        @media (max-width: 768px) {
-            .chart-container {
-                padding: 1rem;
-                min-height: 250px;
-            }
+        .stats-card {
+            text-align: center;
+            padding: 2rem;
         }
 
-        .text-7xl {
-            font-size: 4.5rem;
-            line-height: 1.2;
+        .stats-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
-        .text-4xl {
-            font-size: 2.25rem;
-            line-height: 1.2;
-        }
-
-        .text-2xl {
-            font-size: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .text-xl {
-            font-size: 1.25rem;
-            line-height: 1.2;
-        }
-
-        .text-lg {
-            font-size: 1.125rem;
-            line-height: 1.2;
-        }
-
-        .font-bold {
+        .highlight {
+            color: var(--primary);
             font-weight: 700;
         }
 
-        .text-center {
-            text-align: center;
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary), #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .text-black {
-            color: #000000;
-        }
-
-        .text-gray-700 {
-            color: #374151;
-        }
-
-        .text-gray-600 {
-            color: #4B5563;
-        }
-
-        .text-yellow-500 {
-            color: #EAB308;
-        }
-
-        .text-green-500 {
-            color: #22C55E;
-        }
-
-        .bg-yellow-50 {
-            background-color: #fefce8;
-        }
-
-        .bg-white {
-            background-color: #ffffff;
-        }
-
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-
-        .mb-8 {
-            margin-bottom: 2rem;
-        }
-
-        .mb-16 {
-            margin-bottom: 4rem;
-        }
-
-        .space-y-2 > * + * {
-            margin-top: 0.5rem;
-        }
-
-        .space-y-4 > * + * {
-            margin-top: 1rem;
-        }
-
-        .space-y-8 > * + * {
-            margin-top: 2rem;
-        }
-
-        .flex {
-            display: flex;
-        }
-
-        .items-center {
-            align-items: center;
-        }
-
-        .items-start {
-            align-items: flex-start;
-        }
-
-        .justify-between {
-            justify-content: space-between;
-        }
-
-        .mr-2 {
-            margin-right: 0.5rem;
-        }
-
-        .mr-3 {
-            margin-right: 0.75rem;
-        }
-
-        .mt-1 {
-            margin-top: 0.25rem;
-        }
-
-        .mt-2 {
-            margin-top: 0.5rem;
-        }
-
-        .mt-4 {
-            margin-top: 1rem;
-        }
-
-        .mt-6 {
-            margin-top: 1.5rem;
-        }
-
-        .h-5 {
-            height: 1.25rem;
-        }
-
-        .w-5 {
-            width: 1.25rem;
-        }
-
-        .h-6 {
-            height: 1.5rem;
-        }
-
-        .w-6 {
-            width: 1.5rem;
-        }
-
-        .flex-shrink-0 {
-            flex-shrink: 0;
-        }
-
-        .rounded-lg {
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
             border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        .shadow-lg {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
         }
 
-        .border {
-            border-width: 1px;
-        }
-
-        .border-yellow-100 {
-            border-color: #fef9c3;
-        }
-
-        .bg-yellow-100 {
-            background-color: #fef9c3;
-        }
-
-        .max-w-3xl {
-            max-width: 48rem;
-        }
-
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .leading-tight {
-            line-height: 1.25;
-        }
-
-        .leading-relaxed {
-            line-height: 1.625;
+        @media (max-width: 768px) {
+            .hero-section {
+                min-height: 80vh;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <main class="min-h-screen bg-white">
+    <main>
         <!-- Hero Section -->
         <section class="hero-section">
-            <div class="container text-center">
-                <h1 class="text-5xl md:text-7xl font-bold text-black mb-8 leading-tight">
-                    Strategic Partnership Proposal for WrightBNB Academy
-                </h1>
-                <p class="text-xl md:text-3xl text-gray-800 max-w-3xl mx-auto leading-relaxed">
-                    Scale your Airbnb coaching business with our proven expertise and comprehensive solutions
-                </p>
+            <div class="hero-pattern"></div>
+            <div class="container">
+                <div class="max-w-3xl">
+                    <h1 class="text-6xl font-bold mb-6">
+                        Turn Your Brand Into a 
+                        <span class="gradient-text">High-Margin Machine</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        OfferLaunch transforms businesses into predictable, scalable revenue engines through expert paid traffic strategy, funnel optimization, and operational excellence.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/alexg" class="btn-primary">View Sample Proposal</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Partnership Overview -->
+        <!-- Stats Section -->
         <section class="section bg-white">
             <div class="container">
-                <div class="grid md:grid-cols-2">
-                    <div>
-                        <h2 class="text-4xl font-bold text-black mb-8">What We Offer</h2>
-                        <ul class="space-y-8">
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">Student Acquisition & Growth</span>
-                                    <span class="text-gray-600">Proven strategies to scale your student base, optimize your course offerings, and increase enrollment rates.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">Course Development Support</span>
-                                    <span class="text-gray-600">Expert assistance in creating and optimizing your course content, ensuring high-quality learning experiences.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">Performance Analytics</span>
-                                    <span class="text-gray-600">Comprehensive tracking and analysis of student engagement, completion rates, and revenue metrics.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">Platform Optimization</span>
-                                    <span class="text-gray-600">Technical improvements to enhance user experience, course delivery, and student success rates.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">FTC Compliance & Legal</span>
-                                    <span class="text-gray-600">Stringent compliance monitoring and legal review of all content and marketing materials.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">Content Creation & Management</span>
-                                    <span class="text-gray-600">Full-service content creation, including course materials, marketing copy, and student resources.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">Dedicated Team Members</span>
-                                    <span class="text-gray-600">Direct access to your dedicated account manager, content strategist, and technical support team.</span>
-                                </div>
-                            </li>
-                        </ul>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card stats-card">
+                        <div class="stats-number">$50M+</div>
+                        <p class="text-lg text-gray-600">Revenue Generated</p>
                     </div>
-                    <div>
-                        <h2 class="text-4xl font-bold text-black mb-8">Our Commitment</h2>
-                        <p class="text-xl text-gray-700 mb-8 leading-relaxed">
-                            We're committed to helping you scale WrightBNB Academy and reach more aspiring Airbnb hosts with your proven coaching methods.
+                    <div class="card stats-card">
+                        <div class="stats-number">70%+</div>
+                        <p class="text-lg text-gray-600">Average Profit Margins</p>
+                    </div>
+                    <div class="card stats-card">
+                        <div class="stats-number">100+</div>
+                        <p class="text-lg text-gray-600">Successful Campaigns</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Do -->
+        <section class="section bg-gray-50">
+            <div class="container">
+                <h2 class="text-4xl font-bold text-center mb-16">What Makes Us Different</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-4">Full-Stack Execution</h3>
+                        <p class="text-gray-600">
+                            We don't just consult – we execute. From strategy to implementation, we handle every aspect of your growth journey.
                         </p>
-                        <ul class="space-y-8">
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">Transparent Communication</span>
-                                    <span class="text-gray-600">Regular updates on performance metrics, growth strategies, and partnership progress.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">Data-Driven Decisions</span>
-                                    <span class="text-gray-600">Strategic planning based on real-time analytics and market insights.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">Quality Assurance</span>
-                                    <span class="text-gray-600">Rigorous testing and optimization of all course materials and marketing campaigns.</span>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="h-6 w-6 text-yellow-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                                <div>
-                                    <span class="text-lg text-gray-800 font-semibold block">Long-Term Partnership</span>
-                                    <span class="text-gray-600">Dedicated to your success with ongoing support and continuous improvement.</span>
-                                </div>
-                            </li>
-                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-4">Risk-Free Model</h3>
+                        <p class="text-gray-600">
+                            We put our money where our mouth is. We cover ad spend and only win when you win.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-4">Proven System</h3>
+                        <p class="text-gray-600">
+                            Our battle-tested framework has generated over $50M in revenue across various industries.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Revenue Comparison Chart -->
-        <section class="section bg-yellow-50">
-            <div class="container">
-                <h2 class="text-4xl font-bold text-center text-black mb-16">Revenue Growth Projection</h2>
-                <div class="chart-container">
-                    <canvas id="revenueChart"></canvas>
-                </div>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h3 class="text-xl font-bold text-black mb-4">Current Revenue</h3>
-                        <ul class="space-y-2 text-gray-600">
-                            <li class="flex items-center">
-                                <svg class="h-5 w-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                <span>Stable at $50-75k/month</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="h-5 w-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                <span>Manual student acquisition</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="h-5 w-5 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                <span>Limited marketing reach</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-black mb-4">With Partnership</h3>
-                        <ul class="space-y-2 text-gray-600">
-                            <li class="flex items-center">
-                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                <span>Projected $1M+ monthly revenue</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                <span>Automated student acquisition</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                <span>Expanded marketing reach</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Partnership Options -->
+        <!-- Services -->
         <section class="section bg-white">
             <div class="container">
-                <h2 class="text-4xl font-bold text-center text-black mb-16">Partnership Options</h2>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <!-- Option 1 Card -->
+                <h2 class="text-4xl font-bold text-center mb-16">Our Services</h2>
+                <div class="grid md:grid-cols-2 gap-8">
                     <div class="card">
-                        <h3 class="text-2xl font-bold text-black mb-4">Option 1: Growth Partnership</h3>
-                        <div class="space-y-6">
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-gray-700">One-Time Licensing Fee</span>
-                                <span class="text-2xl font-bold text-yellow-500">$15,000</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-gray-700">Revenue Split</span>
-                                <span class="text-2xl font-bold text-yellow-500">55/45</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-gray-700">Ad Cost Structure</span>
-                                <span class="text-2xl font-bold text-yellow-500">We Front & Recoup</span>
-                            </div>
-                            <div class="space-y-4">
-                                <div class="flex items-start">
-                                    <svg class="h-5 w-5 text-yellow-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    <span class="text-gray-600">We Front All Ad Costs</span>
-                                </div>
-                                <div class="flex items-start">
-                                    <svg class="h-5 w-5 text-yellow-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    <span class="text-gray-600">Recoup Ad Costs from Profits</span>
-                                </div>
-                                <div class="flex items-start">
-                                    <svg class="h-5 w-5 text-yellow-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    <span class="text-gray-600">We Absorb Losses if Ads Underperform</span>
-                                </div>
-                            </div>
-                            <div class="mt-8 p-4 bg-yellow-100 rounded-lg">
-                                <h4 class="text-lg font-bold text-black mb-2">Example Scenarios:</h4>
-                                <div class="space-y-4">
-                                    <div>
-                                        <p class="font-semibold text-gray-800">Successful Campaign:</p>
-                                        <p class="text-gray-600">$100k ad spend → $150k revenue</p>
-                                        <p class="text-gray-600">Profit: $50k</p>
-                                        <p class="text-gray-600">Your Take: $27.5k (55%)</p>
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold text-gray-800">Unsuccessful Campaign:</p>
-                                        <p class="text-gray-600">$100k ad spend → $90k revenue</p>
-                                        <p class="text-gray-600">Loss: $10k (We absorb this)</p>
-                                        <p class="text-gray-600">Your Take: $0 (No loss to you)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Paid Traffic Mastery</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Strategic campaign planning and execution</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Advanced targeting and optimization</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Continuous performance monitoring</span>
+                            </li>
+                        </ul>
                     </div>
-                    <!-- Option 2 Card -->
                     <div class="card">
-                        <h3 class="text-2xl font-bold text-black mb-4">Option 2: Premium Partnership</h3>
-                        <div class="space-y-6">
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-gray-700">One-Time Licensing Fee</span>
-                                <span class="text-2xl font-bold text-yellow-500">$20,000</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-gray-700">Revenue Split</span>
-                                <span class="text-2xl font-bold text-yellow-500">70/30</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="text-lg text-gray-700">Ad Cost Structure</span>
-                                <span class="text-2xl font-bold text-yellow-500">You Manage & Fund</span>
-                            </div>
-                            <div class="space-y-4">
-                                <div class="flex items-start">
-                                    <svg class="h-5 w-5 text-yellow-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    <span class="text-gray-600">You Fund All Ad Campaigns</span>
-                                </div>
-                                <div class="flex items-start">
-                                    <svg class="h-5 w-5 text-yellow-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    <span class="text-gray-600">You Bear Campaign Risk</span>
-                                </div>
-                                <div class="flex items-start">
-                                    <svg class="h-5 w-5 text-yellow-500 mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    <span class="text-gray-600">Higher Revenue Share (70%)</span>
-                                </div>
-                            </div>
-                            <div class="mt-8 p-4 bg-yellow-100 rounded-lg">
-                                <h4 class="text-lg font-bold text-black mb-2">Example Scenarios:</h4>
-                                <div class="space-y-4">
-                                    <div>
-                                        <p class="font-semibold text-gray-800">Successful Campaign:</p>
-                                        <p class="text-gray-600">$100k ad spend → $150k revenue</p>
-                                        <p class="text-gray-600">Profit: $50k</p>
-                                        <p class="text-gray-600">Your Take: $35k (70%)</p>
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold text-gray-800">Unsuccessful Campaign:</p>
-                                        <p class="text-gray-600">$100k ad spend → $90k revenue</p>
-                                        <p class="text-gray-600">Loss: $10k (You bear this)</p>
-                                        <p class="text-gray-600">Your Take: $0 (You absorb loss)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Funnel Optimization</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>High-converting landing pages</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>Upsell and cross-sell optimization</span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span>A/B testing and conversion rate optimization</span>
+                            </li>
+                        </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Section (Placeholder) -->
+        <section class="section bg-gray-50">
+            <div class="container">
+                <h2 class="text-4xl font-bold text-center mb-16">Success Stories</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Case study cards will go here -->
+                    <div class="card">
+                        <div class="aspect-video bg-gray-100 mb-4 rounded"></div>
+                        <h3 class="text-2xl font-bold mb-2">Case Study #1</h3>
+                        <p class="text-gray-600 mb-4">Placeholder for case study details</p>
+                    </div>
+                    <div class="card">
+                        <div class="aspect-video bg-gray-100 mb-4 rounded"></div>
+                        <h3 class="text-2xl font-bold mb-2">Case Study #2</h3>
+                        <p class="text-gray-600 mb-4">Placeholder for case study details</p>
+                    </div>
+                    <div class="card">
+                        <div class="aspect-video bg-gray-100 mb-4 rounded"></div>
+                        <h3 class="text-2xl font-bold mb-2">Case Study #3</h3>
+                        <p class="text-gray-600 mb-4">Placeholder for case study details</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Logos Section (Placeholder) -->
+        <section class="section bg-white">
+            <div class="container">
+                <h2 class="text-4xl font-bold text-center mb-16">Trusted By Industry Leaders</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <!-- Logo placeholders -->
+                    <div class="aspect-video bg-gray-100 rounded"></div>
+                    <div class="aspect-video bg-gray-100 rounded"></div>
+                    <div class="aspect-video bg-gray-100 rounded"></div>
+                    <div class="aspect-video bg-gray-100 rounded"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section bg-gray-50">
+            <div class="container">
+                <div class="card text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl font-bold mb-8">Ready to Scale Your Brand?</h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Let's discuss how we can transform your business into a predictable, high-margin machine.
+                    </p>
+                    <a href="/alexg" class="btn-primary">View Our Proposal</a>
                 </div>
             </div>
         </section>
     </main>
-
-    <script>
-        // Wait for both DOM and Chart.js to be ready
-        function initializeChart() {
-            try {
-                const canvas = document.getElementById('revenueChart');
-                if (!canvas) {
-                    console.error('Chart canvas not found');
-                    return;
-                }
-
-                const ctx = canvas.getContext('2d');
-                if (!ctx) {
-                    console.error('Could not get canvas context');
-                    return;
-                }
-
-                const isMobile = window.innerWidth <= 768;
-                const baseFontSize = isMobile ? 10 : 12;
-                
-                new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 'Month 7'],
-                        datasets: [
-                            {
-                                label: 'Steady Growth ($50k–$75k)',
-                                data: [50000, 54167, 58333, 62500, 66667, 70833, 75000],
-                                borderColor: 'rgb(156, 163, 175)',
-                                backgroundColor: 'rgba(156, 163, 175, 0.1)',
-                                borderDash: [5, 5],
-                                fill: false,
-                                tension: 0.4
-                            },
-                            {
-                                label: 'Peak Growth ($1M)',
-                                data: [50000, 150000, 300000, 500000, 750000, 1000000, 1000000],
-                                borderColor: '#EAB308',
-                                backgroundColor: 'rgba(234, 179, 8, 0.1)',
-                                fill: false,
-                                tension: 0.4
-                            },
-                            {
-                                label: '70% of Peak',
-                                data: [35000, 105000, 210000, 350000, 525000, 700000, 700000],
-                                borderColor: '#22C55E',
-                                backgroundColor: 'rgba(34, 197, 94, 0.1)',
-                                fill: false,
-                                tension: 0.4
-                            }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        interaction: {
-                            mode: 'index',
-                            intersect: false
-                        },
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                                labels: {
-                                    boxWidth: 12,
-                                    padding: 10,
-                                    font: {
-                                        size: isMobile ? 10 : 12
-                                    },
-                                    usePointStyle: true,
-                                    pointStyle: 'circle'
-                                }
-                            },
-                            title: {
-                                display: true,
-                                text: 'Revenue Growth Projection (Next 6 Months)',
-                                font: {
-                                    size: isMobile ? 14 : 16
-                                }
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: {
-                                    callback: function(value) {
-                                        return '$' + value.toLocaleString();
-                                    },
-                                    font: {
-                                        size: baseFontSize
-                                    }
-                                },
-                                grid: {
-                                    color: 'rgba(0, 0, 0, 0.1)',
-                                    drawBorder: false
-                                }
-                            },
-                            x: {
-                                ticks: {
-                                    font: {
-                                        size: baseFontSize
-                                    }
-                                },
-                                grid: {
-                                    color: 'rgba(0, 0, 0, 0.1)',
-                                    drawBorder: false
-                                }
-                            }
-                        }
-                    }
-                });
-            } catch (error) {
-                console.error('Error initializing chart:', error);
-            }
-        }
-
-        // Try to initialize when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeChart);
-        } else {
-            initializeChart();
-        }
-
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            const chart = Chart.getChart('revenueChart');
-            if (chart) {
-                const isMobile = window.innerWidth <= 768;
-                chart.options.plugins.legend.labels.font.size = isMobile ? 10 : 12;
-                chart.options.plugins.title.font.size = isMobile ? 14 : 16;
-                chart.options.scales.y.ticks.font.size = isMobile ? 10 : 12;
-                chart.options.scales.x.ticks.font.size = isMobile ? 10 : 12;
-                chart.update();
-            }
-        });
-    </script>
 </body>
 </html> 
