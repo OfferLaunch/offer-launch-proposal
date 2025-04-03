@@ -132,20 +132,63 @@
 
         .section-title {
             font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 4rem;
-            text-align: center;
-            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             color: var(--dark);
         }
 
         .section-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             color: var(--dark);
-            text-align: center;
+            margin-bottom: 4rem;
             max-width: 800px;
-            margin: 0 auto 4rem;
-            opacity: 0.9;
+        }
+
+        .scroll-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .scroll-content {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            gap: 2rem;
+        }
+
+        .scroll-content:hover {
+            animation-play-state: paused;
+        }
+
+        .scroll-item {
+            background: var(--primary);
+            padding: 2rem;
+            border-radius: 1rem;
+            min-width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .scroll-item h3 {
+            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .scroll-item p {
+            color: var(--dark);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
         }
 
         .testimonial-card {
@@ -464,23 +507,54 @@
         </section>
 
         <!-- Client Logos Section -->
-        <section class="section dark-section">
+        <section class="section">
             <div class="container">
                 <h2 class="section-title">Trusted By Industry Leaders</h2>
-                <p class="section-subtitle">Join the ranks of successful businesses we've helped scale.</p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
-                    <!-- Logo placeholders - replace src with actual logo paths -->
-                    <div class="aspect-[3/2] bg-white/5 rounded-lg flex items-center justify-center p-6">
-                        <img src="./assets/logos/Asset 2.png" alt="Client Logo 1" class="max-w-full max-h-full object-contain">
-                    </div>
-                    <div class="aspect-[3/2] bg-white/5 rounded-lg flex items-center justify-center p-6">
-                        <img src="./assets/logos/Asset 2.png" alt="Client Logo 2" class="max-w-full max-h-full object-contain">
-                    </div>
-                    <div class="aspect-[3/2] bg-white/5 rounded-lg flex items-center justify-center p-6">
-                        <img src="./assets/logos/Asset 2.png" alt="Client Logo 3" class="max-w-full max-h-full object-contain">
-                    </div>
-                    <div class="aspect-[3/2] bg-white/5 rounded-lg flex items-center justify-center p-6">
-                        <img src="./assets/logos/Asset 2.png" alt="Client Logo 4" class="max-w-full max-h-full object-contain">
+                <p class="section-subtitle">We've helped businesses across various industries scale their revenue and optimize their operations.</p>
+                
+                <div class="scroll-container">
+                    <div class="scroll-content">
+                        <div class="scroll-item">
+                            <h3>Coaching</h3>
+                            <p>Expert guidance to help coaches scale their programs and reach more clients.</p>
+                        </div>
+                        <div class="scroll-item">
+                            <h3>Done For You</h3>
+                            <p>Full-service solutions for businesses looking to outsource their growth.</p>
+                        </div>
+                        <div class="scroll-item">
+                            <h3>Automation</h3>
+                            <p>Streamline operations and reduce manual work through smart automation.</p>
+                        </div>
+                        <div class="scroll-item">
+                            <h3>Info Products</h3>
+                            <p>Scale your digital products and courses with proven marketing strategies.</p>
+                        </div>
+                        <div class="scroll-item">
+                            <h3>Communities</h3>
+                            <p>Build and grow thriving online communities with engaged members.</p>
+                        </div>
+                        <!-- Duplicate items for seamless scrolling -->
+                        <div class="scroll-item">
+                            <h3>Coaching</h3>
+                            <p>Expert guidance to help coaches scale their programs and reach more clients.</p>
+                        </div>
+                        <div class="scroll-item">
+                            <h3>Done For You</h3>
+                            <p>Full-service solutions for businesses looking to outsource their growth.</p>
+                        </div>
+                        <div class="scroll-item">
+                            <h3>Automation</h3>
+                            <p>Streamline operations and reduce manual work through smart automation.</p>
+                        </div>
+                        <div class="scroll-item">
+                            <h3>Info Products</h3>
+                            <p>Scale your digital products and courses with proven marketing strategies.</p>
+                        </div>
+                        <div class="scroll-item">
+                            <h3>Communities</h3>
+                            <p>Build and grow thriving online communities with engaged members.</p>
+                        </div>
                     </div>
                 </div>
             </div>
