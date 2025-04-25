@@ -6,10 +6,10 @@
     <title>OfferLaunch x Joseph Carter - Section 8 Solutions Partnership</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
             background: #ffffff;
@@ -17,13 +17,13 @@
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
 
         .section {
-            padding: 8rem 0;
+            padding: 6rem 0;
         }
 
         .hero-section {
@@ -34,33 +34,15 @@
             background: linear-gradient(to bottom, #FEFCE8, #ffffff);
             text-align: center;
             padding: 4rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(234, 179, 8, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-            z-index: 0;
         }
 
         .card {
             background: #ffffff;
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 1rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             border: 1px solid #E5E7EB;
             margin-bottom: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         .grid {
@@ -77,31 +59,30 @@
         .text-7xl {
             font-size: 4.5rem;
             line-height: 1.2;
-            font-weight: 700;
         }
 
         .text-4xl {
             font-size: 2.25rem;
             line-height: 1.2;
-            font-weight: 700;
         }
 
         .text-2xl {
             font-size: 1.5rem;
             line-height: 1.2;
-            font-weight: 600;
         }
 
         .text-xl {
             font-size: 1.25rem;
             line-height: 1.2;
-            font-weight: 500;
         }
 
         .text-lg {
             font-size: 1.125rem;
             line-height: 1.2;
-            font-weight: 400;
+        }
+
+        .font-bold {
+            font-weight: 700;
         }
 
         .text-center {
@@ -248,31 +229,13 @@
             background-color: #FEF9C3;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .btn-primary {
-            background-color: #EAB308;
-            color: #000000;
-            border: 2px solid #EAB308;
-        }
-
-        .btn-primary:hover {
-            background-color: #FEFCE8;
-            color: #000000;
-            transform: translateY(-2px);
-        }
-
-        .logo {
-            max-width: 200px;
-            margin-bottom: 2rem;
+        .max-w-3xl {
+            max-width: 48rem;
         }
     </style>
 </head>
@@ -280,9 +243,7 @@
     <main>
         <!-- Hero Section -->
         <section class="hero-section">
-            <div class="hero-pattern"></div>
-            <div class="container relative z-10">
-                <img src="assets/Asset 1.png" alt="OfferLaunch Logo" class="logo mx-auto">
+            <div class="container">
                 <h1 class="text-7xl font-bold text-black mb-8">OfferLaunch x Joseph Carter</h1>
                 <h2 class="text-4xl text-gray-700 mb-12">Section 8 Solutions Partnership</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-16">
