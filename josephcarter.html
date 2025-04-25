@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OfferLaunch x Joseph Carter - Section 8 Solutions Partnership</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            color: #1F2937;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 8rem 0;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, #FEFCE8, #ffffff);
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(234, 179, 8, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: 0;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #E5E7EB;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .text-7xl {
+            font-size: 4.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.2;
+            font-weight: 500;
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.2;
+            font-weight: 400;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-black {
+            color: #000000;
+        }
+
+        .text-gray-700 {
+            color: #374151;
+        }
+
+        .text-gray-600 {
+            color: #4B5563;
+        }
+
+        .text-yellow-500 {
+            color: #EAB308;
+        }
+
+        .text-green-500 {
+            color: #22C55E;
+        }
+
+        .bg-yellow-50 {
+            background-color: #FEFCE8;
+        }
+
+        .bg-white {
+            background-color: #ffffff;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-16 {
+            margin-bottom: 4rem;
+        }
+
+        .space-y-2 > * + * {
+            margin-top: 0.5rem;
+        }
+
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
+
+        .space-y-8 > * + * {
+            margin-top: 2rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .items-start {
+            align-items: flex-start;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .mr-2 {
+            margin-right: 0.5rem;
+        }
+
+        .mr-3 {
+            margin-right: 0.75rem;
+        }
+
+        .mt-1 {
+            margin-top: 0.25rem;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .mt-6 {
+            margin-top: 1.5rem;
+        }
+
+        .mt-8 {
+            margin-top: 2rem;
+        }
+
+        .mt-12 {
+            margin-top: 3rem;
+        }
+
+        .mt-16 {
+            margin-top: 4rem;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .p-6 {
+            padding: 1.5rem;
+        }
+
+        .p-8 {
+            padding: 2rem;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .border {
+            border: 1px solid #E5E7EB;
+        }
+
+        .border-yellow-200 {
+            border-color: #FEF9C3;
+        }
+
+        .bg-yellow-100 {
+            background-color: #FEF9C3;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #EAB308;
+            color: #000000;
+            border: 2px solid #EAB308;
+        }
+
+        .btn-primary:hover {
+            background-color: #FEFCE8;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        .logo {
+            max-width: 200px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-pattern"></div>
+            <div class="container relative z-10">
+                <img src="assets/Asset 1.png" alt="OfferLaunch Logo" class="logo mx-auto">
+                <h1 class="text-7xl font-bold text-black mb-8">OfferLaunch x Joseph Carter</h1>
+                <h2 class="text-4xl text-gray-700 mb-12">Section 8 Solutions Partnership</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-16">
+                    Building a scalable, systemized corporate structure around Section 8 Solutions — turning it into a predictable, high-margin machine generating $1M/month in paid/organic traffic revenue at 70%+ profit margins.
+                </p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="section bg-white">
+            <div class="container">
+                <h2 class="text-4xl font-bold text-center text-black mb-16">🚀 The Mission</h2>
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-black mb-4">Our Shared Vision</h3>
+                    <p class="text-lg text-gray-600 mb-4">
+                        Together, we'll transform Section 8 Solutions into a powerhouse in the digital marketing space, leveraging our combined expertise in paid traffic, offer optimization, and business scaling.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 mt-8">
+                        <div class="card bg-yellow-50">
+                            <h4 class="text-xl font-bold text-black mb-4">Revenue Goals</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">$1M/month in paid/organic traffic revenue</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">70%+ profit margins</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">Scalable, predictable growth</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card bg-yellow-50">
+                            <h4 class="text-xl font-bold text-black mb-4">Strategic Focus</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">Offer optimization and scaling</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">Team building and management</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">Systemized operations</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deal Structure Section -->
+        <section class="section bg-yellow-50">
+            <div class="container">
+                <h2 class="text-4xl font-bold text-center text-black mb-16">🤝 Deal Structure</h2>
+                <div class="card">
+                    <h3 class="text-2xl font-bold text-black mb-4">50/50 Revenue Share</h3>
+                    <p class="text-lg text-gray-600 mb-8">
+                        A simple, straightforward partnership structure with no license fees or hidden costs.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="card">
+                            <h4 class="text-xl font-bold text-black mb-4">OfferLaunch Responsibilities</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">Offer optimization and scaling</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">Team building and management</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">System implementation</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h4 class="text-xl font-bold text-black mb-4">Section 8 Solutions Responsibilities</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">Initial capital investment</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">Access to existing resources</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-yellow-500 mr-2">•</span>
+                                    <span class="text-gray-700">Strategic decision-making</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section class="section bg-white">
+            <div class="container">
+                <h2 class="text-4xl font-bold text-center text-black mb-16">📅 Next Steps</h2>
+                <div class="card">
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 rounded-lg p-4 mr-4">
+                                <span class="text-2xl">1</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-black mb-2">Initial Strategy Session</h3>
+                                <p class="text-gray-600">Deep dive into current operations and growth opportunities</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 rounded-lg p-4 mr-4">
+                                <span class="text-2xl">2</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-black mb-2">Implementation Plan</h3>
+                                <p class="text-gray-600">Detailed roadmap for scaling and optimization</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 rounded-lg p-4 mr-4">
+                                <span class="text-2xl">3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-black mb-2">Launch & Scale</h3>
+                                <p class="text-gray-600">Execute the plan and begin revenue generation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-12">
+                        <a href="https://offerlaunch.ai" class="btn btn-primary">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html> 
