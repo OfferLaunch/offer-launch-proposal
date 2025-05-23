@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OfferLaunch x Tyson Lee - Growth Partner Operations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            color: #1F2937;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, #FEFCE8, #ffffff);
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #E5E7EB;
+            margin-bottom: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .text-7xl {
+            font-size: 4.5rem;
+            line-height: 1.2;
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 1.2;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.2;
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.2;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-black {
+            color: #000000;
+        }
+
+        .text-gray-700 {
+            color: #374151;
+        }
+
+        .text-gray-600 {
+            color: #4B5563;
+        }
+
+        .text-yellow-500 {
+            color: #EAB308;
+        }
+
+        .text-green-500 {
+            color: #22C55E;
+        }
+
+        .bg-yellow-50 {
+            background-color: #FEFCE8;
+        }
+
+        .bg-white {
+            background-color: #ffffff;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-16 {
+            margin-bottom: 4rem;
+        }
+
+        .space-y-2 > * + * {
+            margin-top: 0.5rem;
+        }
+
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
+
+        .space-y-8 > * + * {
+            margin-top: 2rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .items-start {
+            align-items: flex-start;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .mr-2 {
+            margin-right: 0.5rem;
+        }
+
+        .mr-3 {
+            margin-right: 0.75rem;
+        }
+
+        .mt-1 {
+            margin-top: 0.25rem;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .mt-6 {
+            margin-top: 1.5rem;
+        }
+
+        .mt-8 {
+            margin-top: 2rem;
+        }
+
+        .mt-12 {
+            margin-top: 3rem;
+        }
+
+        .mt-16 {
+            margin-top: 4rem;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .p-6 {
+            padding: 1.5rem;
+        }
+
+        .p-8 {
+            padding: 2rem;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .border {
+            border: 1px solid #E5E7EB;
+        }
+
+        .border-yellow-200 {
+            border-color: #FEF9C3;
+        }
+
+        .bg-yellow-100 {
+            background-color: #FEF9C3;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .max-w-3xl {
+            max-width: 48rem;
+        }
+
+        /* Update section titles to yellow */
+        .section-title {
+            color: #FFD700;
+        }
+        
+        /* Keep text dark in cards */
+        .card h3 {
+            color: #1A1A1A;
+        }
+
+        /* Table styles */
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        th {
+            background-color: #FEFCE8;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #FEFCE8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <img src="https://offerlaunch.ai/wp-content/uploads/2024/02/Asset-2.png" alt="OfferLaunch Logo" class="mx-auto mb-8" style="max-width: 200px;">
+            <h1 class="text-7xl font-bold text-black mb-8">Growth Partner Operations</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">A refined proposal outlining optimized partnership options to maximize profitability and growth for Tyson Lee</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-black mb-8">Introduction</h2>
+                <p class="text-lg text-gray-700 mb-8">This refined proposal outlines two clearly optimized partnership options from Offer Launch, structured specifically to maximize profitability and growth for Tyson Lee. These scenarios reflect improved advertising efficiency (3.5x ROAS) versus the current operational structure (2x ROAS).</p>
+                <div class="bg-yellow-50 p-6 rounded-lg border-2 border-yellow-200">
+                    <p class="text-lg font-bold text-black">Important: Offer Launch (OL) will cover any and all deficits in advertising spend, removing financial risk from Tyson Lee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Structure Section -->
+    <section class="section bg-yellow-50">
+        <div class="container">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-black mb-8">🚩 Current Operational Structure (2x ROAS)</h2>
+                <h3 class="text-2xl font-bold text-black mb-4">Financial Projections:</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card bg-white">
+                        <h4 class="text-xl font-bold text-black mb-4">At $500K/month Revenue:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between">
+                                <span>Ad Spend:</span>
+                                <span class="font-bold">$250,000</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Sales Team (21%):</span>
+                                <span class="font-bold">$105,000</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Override (9%):</span>
+                                <span class="font-bold">$45,000</span>
+                            </li>
+                            <li class="flex justify-between border-t pt-2 mt-2">
+                                <span>Total Cost:</span>
+                                <span class="font-bold">$400,000</span>
+                            </li>
+                            <li class="flex justify-between border-t pt-2 mt-2">
+                                <span>Net Profit:</span>
+                                <span class="font-bold text-green-500">$100,000</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card bg-white">
+                        <h4 class="text-xl font-bold text-black mb-4">At $1M/month Revenue:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex justify-between">
+                                <span>Ad Spend:</span>
+                                <span class="font-bold">$500,000</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Sales Team (21%):</span>
+                                <span class="font-bold">$210,000</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Override (9%):</span>
+                                <span class="font-bold">$90,000</span>
+                            </li>
+                            <li class="flex justify-between border-t pt-2 mt-2">
+                                <span>Total Cost:</span>
+                                <span class="font-bold">$800,000</span>
+                            </li>
+                            <li class="flex justify-between border-t pt-2 mt-2">
+                                <span>Net Profit:</span>
+                                <span class="font-bold text-green-500">$200,000</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Options Section -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-black mb-16">🚀 Proposed Partnership Options</h2>
+                
+                <!-- Option 1 -->
+                <div class="card bg-yellow-50 mb-12">
+                    <h3 class="text-2xl font-bold text-black mb-4">✅ Option 1: 55/45 Net Profit Split (No Additional Fees)</h3>
+                    <div class="mb-6">
+                        <h4 class="text-xl font-bold text-black mb-2">Key Details:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">•</span>
+                                <span>Offer Launch covers all costs and all deficits in ad spend</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">•</span>
+                                <span>Ad Spend (3.5x ROAS), Sales Team (10%), Setters (2%), Operational Costs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">•</span>
+                                <span>Profit split: Tyson (55%) / Offer Launch (45%)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h4 class="text-xl font-bold text-black mb-4">Financial Projections:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="card bg-white">
+                            <h5 class="text-lg font-bold text-black mb-4">At $500K/month Revenue:</h5>
+                            <ul class="space-y-2">
+                                <li class="flex justify-between">
+                                    <span>Ad Spend:</span>
+                                    <span class="font-bold">$142,857</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Sales Team:</span>
+                                    <span class="font-bold">$50,000</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Setters:</span>
+                                    <span class="font-bold">$10,000</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Operational Cost:</span>
+                                    <span class="font-bold">$25,000</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Total Cost:</span>
+                                    <span class="font-bold">$227,857</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Net Profit:</span>
+                                    <span class="font-bold text-green-500">$272,143</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Tyson's Share (55%):</span>
+                                    <span class="font-bold text-green-500">$149,679</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Offer Launch Share (45%):</span>
+                                    <span class="font-bold">$122,464</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card bg-white">
+                            <h5 class="text-lg font-bold text-black mb-4">At $1M/month Revenue:</h5>
+                            <ul class="space-y-2">
+                                <li class="flex justify-between">
+                                    <span>Ad Spend:</span>
+                                    <span class="font-bold">$285,714</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Sales Team:</span>
+                                    <span class="font-bold">$100,000</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Setters:</span>
+                                    <span class="font-bold">$20,000</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Operational Cost:</span>
+                                    <span class="font-bold">$50,000</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Total Cost:</span>
+                                    <span class="font-bold">$455,714</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Net Profit:</span>
+                                    <span class="font-bold text-green-500">$544,286</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Tyson's Share (55%):</span>
+                                    <span class="font-bold text-green-500">$299,357</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Offer Launch Share (45%):</span>
+                                    <span class="font-bold">$244,929</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Option 2 -->
+                <div class="card bg-yellow-50">
+                    <h3 class="text-2xl font-bold text-black mb-4">✅ Option 2: 60/40 Net Profit Split + Licensing & Ad Fees</h3>
+                    <div class="mb-6">
+                        <h4 class="text-xl font-bold text-black mb-2">Key Details:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">•</span>
+                                <span>Licensing Fee: $50,000 (monthly amortized at $4,167)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">•</span>
+                                <span>Monthly Ad Management Fee: 10% of Ad Spend</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">•</span>
+                                <span>Offer Launch covers all deficits in ad spend</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">•</span>
+                                <span>Offer Launch covers: Ad Spend (3.5x ROAS), Sales Team (10%), Setters (2%), Operational Costs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-yellow-500 mr-2">•</span>
+                                <span>Profit split: Tyson (60%) / Offer Launch (40%) plus fees</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h4 class="text-xl font-bold text-black mb-4">Financial Projections:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="card bg-white">
+                            <h5 class="text-lg font-bold text-black mb-4">At $500K/month Revenue:</h5>
+                            <ul class="space-y-2">
+                                <li class="flex justify-between">
+                                    <span>Ad Spend:</span>
+                                    <span class="font-bold">$142,857</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Ad Management Fee:</span>
+                                    <span class="font-bold">$14,286</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Sales Team:</span>
+                                    <span class="font-bold">$50,000</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Setters:</span>
+                                    <span class="font-bold">$10,000</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Operational Cost:</span>
+                                    <span class="font-bold">$25,000</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Monthly Licensing Fee:</span>
+                                    <span class="font-bold">$4,167</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Total Cost:</span>
+                                    <span class="font-bold">$246,310</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Net Profit:</span>
+                                    <span class="font-bold text-green-500">$253,690</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Tyson's Share (60%):</span>
+                                    <span class="font-bold text-green-500">$152,214</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Offer Launch Share (40% + Fees):</span>
+                                    <span class="font-bold">$119,929</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card bg-white">
+                            <h5 class="text-lg font-bold text-black mb-4">At $1M/month Revenue:</h5>
+                            <ul class="space-y-2">
+                                <li class="flex justify-between">
+                                    <span>Ad Spend:</span>
+                                    <span class="font-bold">$285,714</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Ad Management Fee:</span>
+                                    <span class="font-bold">$28,571</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Sales Team:</span>
+                                    <span class="font-bold">$100,000</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Setters:</span>
+                                    <span class="font-bold">$20,000</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Operational Cost:</span>
+                                    <span class="font-bold">$50,000</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Monthly Licensing Fee:</span>
+                                    <span class="font-bold">$4,167</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Total Cost:</span>
+                                    <span class="font-bold">$488,452</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Net Profit:</span>
+                                    <span class="font-bold text-green-500">$511,548</span>
+                                </li>
+                                <li class="flex justify-between border-t pt-2 mt-2">
+                                    <span>Tyson's Share (60%):</span>
+                                    <span class="font-bold text-green-500">$306,929</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Offer Launch Share (40% + Fees):</span>
+                                    <span class="font-bold">$237,357</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparative Analysis Section -->
+    <section class="section bg-yellow-50">
+        <div class="container">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-black mb-8">⚖️ Comparative Analysis Summary</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Scenario</th>
+                                <th>$500K Revenue (Tyson's Net)</th>
+                                <th>$1M Revenue (Tyson's Net)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Current Structure (2x ROAS)</td>
+                                <td>$100,000</td>
+                                <td>$200,000</td>
+                            </tr>
+                            <tr>
+                                <td>Option 1: 55/45 Split (3.5x ROAS)</td>
+                                <td>$149,679 (+50%)</td>
+                                <td>$299,357 (+50%)</td>
+                            </tr>
+                            <tr>
+                                <td>Option 2: 60/40 Split (3.5x ROAS)</td>
+                                <td>$152,214 (+52%)</td>
+                                <td>$306,929 (+53%)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">(Percentage shows increased net profit vs. current structure.)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-black mb-8">🌟 Key Strategic Benefits</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card bg-yellow-50">
+                        <h3 class="text-xl font-bold text-black mb-4">Comprehensive Financial Protection</h3>
+                        <p class="text-gray-700">OL fully covers any deficit in ad spend, eliminating advertising risk for Tyson Lee.</p>
+                    </div>
+                    <div class="card bg-yellow-50">
+                        <h3 class="text-xl font-bold text-black mb-4">Substantially Improved Profitability</h3>
+                        <p class="text-gray-700">Higher ROAS and transparent partnership structure significantly boosts net profits.</p>
+                    </div>
+                    <div class="card bg-yellow-50">
+                        <h3 class="text-xl font-bold text-black mb-4">Risk-free Operational Simplicity</h3>
+                        <p class="text-gray-700">Offer Launch manages all operational aspects, freeing Tyson for strategic focus and growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps Section -->
+    <section class="section bg-yellow-50">
+        <div class="container">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-black mb-8">📌 Recommended Next Steps</h2>
+                <div class="card bg-white">
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-2">1.</span>
+                            <span>Schedule a detailed review call to finalize the best-aligned partnership option.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-2">2.</span>
+                            <span>Confirm strategic alignment, operational terms, and financial structure.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-500 mr-2">3.</span>
+                            <span>Proceed to seamless onboarding with clearly defined next steps.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 
